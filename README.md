@@ -10,7 +10,7 @@
 ### 3)Sending stickers via SendSticker
 
 ## Getting started:
-This library is distributed via [Github Packages (actual)]() so
+This library is distributed via [Github Packages (actual)](https://github.com/ArtemGet/teleroute.telegrambots/packages/2122283) so
 you have to include this setting in your ~/.m2
 
 ```xml
