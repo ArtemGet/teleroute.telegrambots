@@ -1,3 +1,6 @@
+
+[![Maintainability](https://api.codeclimate.com/v1/badges/ef71ad44b66ffce3437d/maintainability)](https://codeclimate.com/github/ArtemGet/teleroute.telegrambots/maintainability)
+
 # Teleroute - TelegramBots integration plug-in
 [Check teleroute repository](https://github.com/ArtemGet/teleroute)
 
