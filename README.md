@@ -27,10 +27,11 @@ you have to include this setting in your ~/.m2
 And add dependency to your pom.xml
 
 ```xml
+
 <dependency>
     <groupId>com.github.ArtemGet</groupId>
     <artifactId>teleroute.telegrambots</artifactId>
-    <version>0.1.0</version>
+    <version>0.2.0</version>
 </dependency>
 ```
 
