@@ -27,8 +27,6 @@ package com.github.artemget.teleroute.telegrambots.send;
 
 import com.github.artemget.teleroute.send.Send;
 import com.github.artemget.teleroute.send.SendException;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.telegram.telegrambots.meta.api.methods.send.SendSticker;
 import org.telegram.telegrambots.meta.bots.AbsSender;
 import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
@@ -37,11 +35,6 @@ import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
  * Send sticker wrap.
  */
 public final class SendStickerWrap implements Send<AbsSender> {
-    /**
-     * Logger.
-     */
-    private static final Logger LOG = LoggerFactory.getLogger(SendStickerWrap.class);
-
     /**
      * Message.
      */

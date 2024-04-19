@@ -28,8 +28,6 @@ package com.github.artemget.teleroute.telegrambots.send;
 import com.github.artemget.teleroute.send.Send;
 import com.github.artemget.teleroute.send.SendException;
 import java.io.Serializable;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.telegram.telegrambots.meta.api.methods.BotApiMethod;
 import org.telegram.telegrambots.meta.bots.AbsSender;
 import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
@@ -40,15 +38,10 @@ import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
  * Send all content laying under BotApiMethod<T>.Including ancestors of
  * BotApiMethod<Boolean>,BotApiMethod<Message>,BotApiMethod<Serializable>.
  *
- *@param<T> generic param of BotApiMethod-Boolean,Message,Serializable
+ * @param<T> generic param of BotApiMethod-Boolean,Message,Serializable
  */
 
 public final class SendMessageWrap<T extends Serializable> implements Send<AbsSender> {
-    /*
-     * Logger.
-     */
-    private static final Logger LOG = LoggerFactory.getLogger(SendMessageWrap.class);
-
     /*
      * Message.
      */

@@ -31,7 +31,7 @@ And add dependency to your pom.xml
 <dependency>
     <groupId>com.github.ArtemGet</groupId>
     <artifactId>teleroute.telegrambots</artifactId>
-    <version>0.2.0</version>
+    <version>0.2.1</version>
 </dependency>
 ```
 
