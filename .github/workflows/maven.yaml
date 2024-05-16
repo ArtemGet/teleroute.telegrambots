@@ -23,7 +23,7 @@ jobs:
         uses: actions/setup-java@v1
         with:
           java-version: 11
-      - name: Install dependencies, run tests and collect coverage
+      - name: Maven setting
         uses: s4u/maven-settings-action@v3.0.0
         with:
           servers: |
@@ -33,4 +33,5 @@ jobs:
                 "username": "${{ secrets.USER_PACKAGE_READ }}",
                 "password": "${{ secrets.TOKEN_PACKAGE_READ }}"
             }]
+      - name: Install dependencies, run tests
         run: mvn clean install -Pqulice --batch-mode --update-snapshots
