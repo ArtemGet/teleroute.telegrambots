@@ -20,7 +20,6 @@
  * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
- *
  */
 
 package com.github.artemget.teleroute.telegrambots.send;
@@ -32,22 +31,21 @@ import org.telegram.telegrambots.meta.api.methods.BotApiMethod;
 import org.telegram.telegrambots.meta.bots.AbsSender;
 import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 
-//TODO: write down all actual ancestors of BotApiMethod<T> in current telegrambots version
-
-/*
- * Send all content laying under BotApiMethod<T>.Including ancestors of
- * BotApiMethod<Boolean>,BotApiMethod<Message>,BotApiMethod<Serializable>.
+/**
+ * Send all content laying under {@code BotApiMethod<T>}. Including ancestors of
+ * {@code BotApiMethod<Boolean>, BotApiMethod<Message>, BotApiMethod<Serializable>}.
  *
- * @param<T> generic param of BotApiMethod-Boolean,Message,Serializable
+ * @param <T> generic param of BotApiMethod: Boolean, Message, Serializable
+ * @see BotApiMethod
+ * @since 0.1.0
  */
-
 public final class SendMessageWrap<T extends Serializable> implements Send<AbsSender> {
-    /*
+    /**
      * Message.
      */
     private final BotApiMethod<T> message;
 
-    /*
+    /**
      * Main ctor.
      *
      * @param message Message

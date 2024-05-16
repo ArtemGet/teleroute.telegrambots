@@ -1,13 +1,20 @@
-name: Workflow for Codecov example-java-maven
+name: Build
+
 on:
   push:
     branches:
-      - main
+      - "main"
+      - "feature/*"
+      - "bugfix/*"
+      - "hotfix/*"
+      - "release/*"
   pull_request:
     branches:
-      - main
+      - "main"
+      - "release/*"
+
 jobs:
-  run:
+  build:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -16,7 +23,7 @@ jobs:
         uses: actions/setup-java@v1
         with:
           java-version: 11
-      - name: setting
+      - name: Maven setting
         uses: s4u/maven-settings-action@v3.0.0
         with:
           servers: |
@@ -26,11 +33,5 @@ jobs:
                 "username": "${{ secrets.USER_PACKAGE_READ }}",
                 "password": "${{ secrets.TOKEN_PACKAGE_READ }}"
             }]
-      - name: Install dependencies, run tests and collect coverage
-        run: mvn install -B -V
-      - name: Upload coverage reports to Codecov
-        uses: codecov/codecov-action@v4.0.1
-        with:
-          token: ${{ secrets.CODECOV_TOKEN }}
-          slug: ArtemGet/teleroute.telegrambots
-          fail_ci_if_error: true
+      - name: Install dependencies, run tests
+        run: mvn clean install -Pqulice --batch-mode --update-snapshots
