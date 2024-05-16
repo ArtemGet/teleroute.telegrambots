@@ -20,7 +20,6 @@
  * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
- *
  */
 
 package com.github.artemget.teleroute.telegrambots.update;
@@ -30,7 +29,15 @@ import java.util.Optional;
 import org.telegram.telegrambots.meta.api.objects.Message;
 import org.telegram.telegrambots.meta.api.objects.Update;
 
+/**
+ * Telegram Update wrap.
+ *
+ * @since 0.1.0
+ */
 public final class TgBotWrap implements Wrap<Update> {
+    /**
+     * Telegram Update.
+     */
     private final Update update;
 
     public TgBotWrap(final Update update) {
@@ -41,6 +48,7 @@ public final class TgBotWrap implements Wrap<Update> {
     public Integer identity() {
         return this.update.getUpdateId();
     }
+
     @Override
     public Boolean isCommand() {
         return Optional.ofNullable(this.update.getMessage())
