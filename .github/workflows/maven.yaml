@@ -3,15 +3,10 @@ name: Build
 on:
   push:
     branches:
-      - "main"
-      - "feature/*"
-      - "bugfix/*"
-      - "hotfix/*"
-      - "release/*"
+      - main
   pull_request:
     branches:
-      - "main"
-      - "release/*"
+      - main
 
 jobs:
   build:
@@ -23,15 +18,5 @@ jobs:
         uses: actions/setup-java@v1
         with:
           java-version: 11
-      - name: Maven setting
-        uses: s4u/maven-settings-action@v3.0.0
-        with:
-          servers: |
-            [{
-                "id": "github",
-                "url": "https://maven.pkg.github.com/ArtemGet/*",
-                "username": "${{ secrets.USER_PACKAGE_READ }}",
-                "password": "${{ secrets.TOKEN_PACKAGE_READ }}"
-            }]
       - name: Install dependencies, run tests
         run: mvn clean install -Pqulice --batch-mode --update-snapshots
