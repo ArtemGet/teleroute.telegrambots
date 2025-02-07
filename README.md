@@ -1,5 +1,6 @@
 
 [![Maintainability](https://api.codeclimate.com/v1/badges/ef71ad44b66ffce3437d/maintainability)](https://codeclimate.com/github/ArtemGet/teleroute.telegrambots/maintainability)
+[![](https://jitpack.io/v/ArtemGet/teleroute.telegrambots.svg)](https://jitpack.io/#ArtemGet/teleroute.telegrambots)
 
 # Teleroute - TelegramBots integration plug-in
 [Check teleroute repository](https://github.com/ArtemGet/teleroute)
@@ -13,27 +14,7 @@
 ### 3)Sending stickers via SendSticker
 
 ## Getting started:
-This library is distributed via [Github Packages (actual)](https://github.com/ArtemGet/teleroute.telegrambots/packages/2122283) so
-you have to include this setting in your ~/.m2
-
-```xml
-<repository>
-    <id>github</id>
-    <name>Github ArtemGet Apache Maven Packages</name>
-    <url>https://maven.pkg.github.com/ArtemGet/teleroute.telegrambots</url>
-</repository>
-```
-
-And add dependency to your pom.xml
-
-```xml
-
-<dependency>
-    <groupId>com.github.ArtemGet</groupId>
-    <artifactId>teleroute.telegrambots</artifactId>
-    <version>0.2.1</version>
-</dependency>
-```
+This library is distributed via [jitpack.io](https://jitpack.io/#ArtemGet/teleroute.telegrambots)
 
 ## Usage example:
 Imagine our goal is to write long polling telegram bot that greet newcomers or greet already existing users
