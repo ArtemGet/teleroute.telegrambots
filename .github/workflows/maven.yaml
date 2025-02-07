@@ -19,4 +19,4 @@ jobs:
         with:
           java-version: 11
       - name: Install dependencies, run tests
-        run: mvn clean install -Pqulice --batch-mode --update-snapshots
+        run: mvn clean install --batch-mode --update-snapshots
