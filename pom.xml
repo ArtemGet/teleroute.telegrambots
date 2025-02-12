@@ -125,7 +125,7 @@
               dependencies:org.telegram:telegrambots-meta:jar:6.9.7.1
             </exclude>
             <exclude>
-              dependencies:io.github.ArtemGet:teleroute:jar:1.0.0:compile
+              dependencies:com.github.ArtemGet:teleroute:jar:1.0.0:compile
             </exclude>
           </excludes>
           <license>file:${basedir}/LICENSE</license>
