@@ -1,28 +1,23 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
-
-  <groupId>com.github.artemget</groupId>
+  <groupId>io.github.artemget</groupId>
   <artifactId>teleroute.telegrambots</artifactId>
   <version>1.0-SNAPSHOT</version>
   <packaging>jar</packaging>
-
   <name>teleroute.telegrambots</name>
-
   <repositories>
     <repository>
       <id>jitpack.io</id>
       <url>https://jitpack.io</url>
     </repository>
   </repositories>
-
   <properties>
     <java.version>17</java.version>
     <logging.version>2.22.1</logging.version>
     <junit.version>5.9.2</junit.version>
     <telegrambots.version>6.9.7.1</telegrambots.version>
   </properties>
-
   <distributionManagement>
     <repository>
       <id>github</id>
@@ -30,12 +25,11 @@
       <url>https://maven.pkg.github.com/ArtemGet/teleroute.telegrambots</url>
     </repository>
   </distributionManagement>
-
   <dependencies>
     <dependency>
-      <groupId>com.github.ArtemGet</groupId>
+      <groupId>io.github.ArtemGet</groupId>
       <artifactId>teleroute</artifactId>
-      <version>0.4.0</version>
+      <version>1.0.0</version>
     </dependency>
     <dependency>
       <groupId>org.telegram</groupId>
@@ -50,7 +44,6 @@
       <scope>test</scope>
     </dependency>
   </dependencies>
-
   <build>
     <plugins>
       <plugin>
@@ -130,6 +123,9 @@
             </exclude>
             <exclude>
               dependencies:org.telegram:telegrambots-meta:jar:6.9.7.1
+            </exclude>
+            <exclude>
+              dependencies:io.github.ArtemGet:teleroute:jar:1.0.0:compile
             </exclude>
           </excludes>
           <license>file:${basedir}/LICENSE</license>

@@ -22,4 +22,4 @@
  * SOFTWARE.
  */
 
-package com.github.artemget.teleroute.telegrambots.update;
+package io.github.artemget.teleroute.telegrambots.update;

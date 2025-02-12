@@ -22,40 +22,48 @@
  * SOFTWARE.
  */
 
-package com.github.artemget.teleroute.telegrambots.send;
+package io.github.artemget.teleroute.telegrambots.update;
 
-import com.github.artemget.teleroute.send.Send;
-import com.github.artemget.teleroute.send.SendException;
-import org.telegram.telegrambots.meta.api.methods.send.SendSticker;
-import org.telegram.telegrambots.meta.bots.AbsSender;
-import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
+import io.github.artemget.teleroute.update.Wrap;
+import java.util.Optional;
+import org.telegram.telegrambots.meta.api.objects.Message;
+import org.telegram.telegrambots.meta.api.objects.Update;
 
 /**
- * Send sticker wrap.
+ * Telegram Update wrap.
  *
  * @since 0.1.0
  */
-public final class SendStickerWrap implements Send<AbsSender> {
+public final class TgBotWrap implements Wrap<Update> {
     /**
-     * Message.
+     * Telegram Update.
      */
-    private final SendSticker message;
+    private final Update update;
 
-    /**
-     * Main constructor. Construct SendStickerWrap.
-     *
-     * @param message Instance of {@link SendSticker}
-     */
-    public SendStickerWrap(final SendSticker message) {
-        this.message = message;
+    public TgBotWrap(final Update update) {
+        this.update = update;
     }
 
     @Override
-    public void send(final AbsSender send) throws SendException {
-        try {
-            send.execute(this.message);
-        } catch (final TelegramApiException exception) {
-            throw new SendException(exception.getMessage(), exception);
-        }
+    public Integer identity() {
+        return this.update.getUpdateId();
+    }
+
+    @Override
+    public Boolean isCommand() {
+        return Optional.ofNullable(this.update.getMessage())
+            .map(Message::isCommand)
+            .orElse(false);
+    }
+
+    @Override
+    public Optional<String> text() {
+        return Optional.ofNullable(this.update.getMessage())
+            .map(Message::getText);
+    }
+
+    @Override
+    public Update src() {
+        return this.update;
     }
 }
