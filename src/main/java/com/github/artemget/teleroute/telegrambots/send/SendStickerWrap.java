@@ -24,8 +24,8 @@
 
 package com.github.artemget.teleroute.telegrambots.send;
 
-import com.github.artemget.teleroute.send.Send;
-import com.github.artemget.teleroute.send.SendException;
+import io.github.artemget.teleroute.send.Send;
+import io.github.artemget.teleroute.send.SendException;
 import org.telegram.telegrambots.meta.api.methods.send.SendSticker;
 import org.telegram.telegrambots.meta.bots.AbsSender;
 import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
