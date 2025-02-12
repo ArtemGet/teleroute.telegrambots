@@ -22,4 +22,40 @@
  * SOFTWARE.
  */
 
-package com.github.artemget.teleroute.telegrambots.update;
+package io.github.artemget.teleroute.telegrambots.send;
+
+import io.github.artemget.teleroute.send.Send;
+import io.github.artemget.teleroute.send.SendException;
+import org.telegram.telegrambots.meta.api.methods.send.SendSticker;
+import org.telegram.telegrambots.meta.bots.AbsSender;
+import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
+
+/**
+ * Send sticker wrap.
+ *
+ * @since 0.1.0
+ */
+public final class SendStickerWrap implements Send<AbsSender> {
+    /**
+     * Message.
+     */
+    private final SendSticker message;
+
+    /**
+     * Main constructor. Construct SendStickerWrap.
+     *
+     * @param message Instance of {@link SendSticker}
+     */
+    public SendStickerWrap(final SendSticker message) {
+        this.message = message;
+    }
+
+    @Override
+    public void send(final AbsSender send) throws SendException {
+        try {
+            send.execute(this.message);
+        } catch (final TelegramApiException exception) {
+            throw new SendException(exception.getMessage(), exception);
+        }
+    }
+}

@@ -22,4 +22,48 @@
  * SOFTWARE.
  */
 
-package com.github.artemget.teleroute.telegrambots.send;
+package io.github.artemget.teleroute.telegrambots.update;
+
+import io.github.artemget.teleroute.update.Wrap;
+import java.util.Optional;
+import org.telegram.telegrambots.meta.api.objects.Message;
+import org.telegram.telegrambots.meta.api.objects.Update;
+
+/**
+ * Telegram Update wrap.
+ *
+ * @since 0.1.0
+ */
+public final class TgBotWrap implements Wrap<Update> {
+    /**
+     * Telegram Update.
+     */
+    private final Update update;
+
+    public TgBotWrap(final Update update) {
+        this.update = update;
+    }
+
+    @Override
+    public Integer identity() {
+        return this.update.getUpdateId();
+    }
+
+    @Override
+    public Boolean isCommand() {
+        return Optional.ofNullable(this.update.getMessage())
+            .map(Message::isCommand)
+            .orElse(false);
+    }
+
+    @Override
+    public Optional<String> text() {
+        return Optional.ofNullable(this.update.getMessage())
+            .map(Message::getText);
+    }
+
+    @Override
+    public Update src() {
+        return this.update;
+    }
+}

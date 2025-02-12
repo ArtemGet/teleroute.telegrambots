@@ -22,31 +22,35 @@
  * SOFTWARE.
  */
 
-package com.github.artemget.teleroute.telegrambots.send;
+package io.github.artemget.teleroute.telegrambots.send;
 
 import io.github.artemget.teleroute.send.Send;
 import io.github.artemget.teleroute.send.SendException;
-import org.telegram.telegrambots.meta.api.methods.send.SendSticker;
+import java.io.Serializable;
+import org.telegram.telegrambots.meta.api.methods.BotApiMethod;
 import org.telegram.telegrambots.meta.bots.AbsSender;
 import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 
 /**
- * Send sticker wrap.
+ * Send all content laying under {@code BotApiMethod<T>}. Including ancestors of
+ * {@code BotApiMethod<Boolean>, BotApiMethod<Message>, BotApiMethod<Serializable>}.
  *
+ * @param <T> generic param of BotApiMethod: Boolean, Message, Serializable
+ * @see BotApiMethod
  * @since 0.1.0
  */
-public final class SendStickerWrap implements Send<AbsSender> {
+public final class SendMessageWrap<T extends Serializable> implements Send<AbsSender> {
     /**
      * Message.
      */
-    private final SendSticker message;
+    private final BotApiMethod<T> message;
 
     /**
-     * Main constructor. Construct SendStickerWrap.
+     * Main ctor.
      *
-     * @param message Instance of {@link SendSticker}
+     * @param message Message
      */
-    public SendStickerWrap(final SendSticker message) {
+    public SendMessageWrap(final BotApiMethod<T> message) {
         this.message = message;
     }
 
