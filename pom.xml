@@ -27,7 +27,7 @@
   </distributionManagement>
   <dependencies>
     <dependency>
-      <groupId>io.github.ArtemGet</groupId>
+      <groupId>com.github.ArtemGet</groupId>
       <artifactId>teleroute</artifactId>
       <version>1.0.0</version>
     </dependency>
