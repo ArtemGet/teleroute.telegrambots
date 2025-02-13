@@ -27,7 +27,7 @@
   </distributionManagement>
   <dependencies>
     <dependency>
-      <groupId>io.github.ArtemGet</groupId>
+      <groupId>com.github.ArtemGet</groupId>
       <artifactId>teleroute</artifactId>
       <version>1.0.0</version>
     </dependency>
@@ -45,6 +45,7 @@
     </dependency>
   </dependencies>
   <build>
+    <sourceDirectory>src</sourceDirectory>
     <plugins>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
@@ -125,7 +126,7 @@
               dependencies:org.telegram:telegrambots-meta:jar:6.9.7.1
             </exclude>
             <exclude>
-              dependencies:io.github.ArtemGet:teleroute:jar:1.0.0:compile
+              dependencies:com.github.ArtemGet:teleroute:jar:1.0.0:compile
             </exclude>
           </excludes>
           <license>file:${basedir}/LICENSE</license>
